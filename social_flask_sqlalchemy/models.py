@@ -41,7 +41,7 @@ class UserSocialAuth(_AppSession, SQLAlchemyUserMixin):
     @classmethod
     def username_max_length(cls):
         user_model = cls.user_model()
-        return user_model.__table__.columns.get('username').type.length
+        return user_model.__table__.columns.get('name').type.length
 
 
 class Nonce(_AppSession, SQLAlchemyNonceMixin):
