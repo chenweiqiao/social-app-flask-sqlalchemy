@@ -80,5 +80,7 @@ def init_social(app, session):
     UserSocialAuth.uid = Column(String(UID_LENGTH))
     UserSocialAuth.user_id = Column(User.id.type, ForeignKey(User.id),
                                     nullable=False, index=True)
-    UserSocialAuth.user = relationship(User, backref=backref('social_auth',
-                                                             lazy='dynamic'))
+    UserSocialAuth.user = relationship(User,
+                                       backref=backref('social_auth',
+                                                       lazy='dynamic',
+                                                       cascade='delete'))  # add cascade delete
